@@ -20,6 +20,7 @@ jobs:
       - name: Run tests
         run: |
           sudo npm i -g jest
+          npm install
           npm test
       - name: Upload coverage
         run: |
