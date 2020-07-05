@@ -23,6 +23,8 @@ jobs:
           npm install
           npm test
       - name: Upload coverage
+        env:
+          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
         run: |
           sudo npm i -g codecov
           codecov
