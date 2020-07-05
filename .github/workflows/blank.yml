@@ -15,11 +15,12 @@ jobs:
   # This workflow contains a single job called "build"
   test:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
-        run: npm test
+        run: |
+          npm i -g jest
+          npm test
       - name: Upload coverage
         run: |
           npm i -g codecov

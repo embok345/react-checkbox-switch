@@ -1,5 +1,9 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
-import CheckBox from './CheckBox';
+import { CheckBox } from './CheckBox';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -56,22 +60,6 @@ it('should toggle when label clicked', () => {
   expect(input?.checked).toBe(!initialState);
   act(() => {
     root?.querySelector('label')?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-  });
-  expect(input?.checked).toBe(initialState);
-});
-
-it('should toggle on key press of input', () => {
-  act(() => {
-    render(<CheckBox />, root);
-  });
-  let input = root?.querySelector('input');
-  let initialState = input?.checked;
-  act(() => {
-    input?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true}));
-  });
-  expect(input?.checked).toBe(!initialState);
-  act(() => {
-    input?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true}));
   });
   expect(input?.checked).toBe(initialState);
 });

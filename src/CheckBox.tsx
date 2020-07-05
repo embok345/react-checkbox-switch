@@ -29,7 +29,6 @@ export class CheckBox extends React.Component<CheckBoxProps, CheckBoxState> {
   state = { checked: true };
 
   componentDidMount() {
-    console.log(styles);
     if(this.props.checked !== undefined) {
       this.setState({checked: this.props.checked});
     }
